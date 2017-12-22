@@ -9,10 +9,10 @@
 <![endif]-->
 <title><?= bloginfo('name'); ?></title>
 </head>
-<body class="home">
+<body <?= body_class(); ?>>
     <header class="globalHeader">
         <div class="inner">
-            <h1><a href="/"><img src="<?= get_template_directory_uri(); ?>/images/common/logo01.png" height="40" width="300" alt="ホテル・技評リゾート石垣島"></a></h1>
+            <h1><a href="<?= home_url(); ?>"><img src="<?= get_template_directory_uri(); ?>/images/common/logo01.png" height="40" width="300" alt="ホテル・技評リゾート石垣島"></a></h1>
             <p class="description"><?= bloginfo('description'); ?></p>
             <form action="" method="get" class="searchform">
                 <input type="text" value="" name="s" id="s" placeholder="サイト内検索">
