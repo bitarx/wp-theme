@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/styles.css" type="text/css" />
-<!--[if lt IE 9]>
-<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<script src="https://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-<![endif]-->
-<title><?= bloginfo('name'); ?></title>
+	<!--[if lt IE 9]>
+	<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+	<title>
+    <?php
+    if ( !is_home() ) :
+        wp_title(' - ', true, 'right');
+    endif;
+    bloginfo('name');
+    ?>
+    </title>
+<?php
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('hotel-common.js', get_template_directory_uri() . '/js/common.js');
+    wp_head();
+?>
 </head>
 <body <?= body_class(); ?>>
     <header class="globalHeader">
@@ -21,7 +33,9 @@
         </div>
     </header><!-- /.globalHeader -->
 
-    <div class="homeVisual"><span>石垣島でのんびりゆったりと。</span></div>
+    <?php if ( is_home() ) : ?>
+        <div class="homeVisual"><span>石垣島でのんびりゆったりと。</span></div>
+    <?php endif; ?>
 
     <nav class="globalNavi">
         <ul>
